@@ -7,9 +7,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableResourceServer
 @Configuration
@@ -24,11 +21,6 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
     public void configure(final ResourceServerSecurityConfigurer config) {
         config.tokenServices(remoteTokenServices());
     }
-//
-//    @Bean
-//    public TokenStore tokenStore() {
-//        return new InMemoryTokenStore();
-//    }
 
     @Bean
     public RemoteTokenServices remoteTokenServices() {
