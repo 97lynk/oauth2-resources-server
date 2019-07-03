@@ -18,18 +18,17 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().anyRequest().permitAll();
-//                .antMatchers("/login**").permitAll();
     }
 
     @Override
     public void configure(final ResourceServerSecurityConfigurer config) {
         config.tokenServices(remoteTokenServices());
     }
-
-    @Bean
-    public TokenStore tokenStore() {
-        return new InMemoryTokenStore();
-    }
+//
+//    @Bean
+//    public TokenStore tokenStore() {
+//        return new InMemoryTokenStore();
+//    }
 
     @Bean
     public RemoteTokenServices remoteTokenServices() {
